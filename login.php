@@ -25,7 +25,7 @@
                 $_SESSION['username'] = $username;
 
                 // Redirect to the home page
-                header('Location: inserimento.php');
+                header('Location: titolo.php');
                 exit();
             } else {
                 $error = "Invalid username or password";

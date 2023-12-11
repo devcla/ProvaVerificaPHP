@@ -1,7 +1,24 @@
 {
     "users": [
-        {"username": "admin", "password": "password"},
-        {"username": "user1", "password": "pass123"},
-        {"username": "user2", "password": "letmein"}
+        {
+            "username": "admin",
+            "password": "password"
+        },
+        {
+            "username": "user1",
+            "password": "pass123"
+        },
+        {
+            "username": "user2",
+            "password": "letmein"
+        },
+        {
+            "username": "napoli",
+            "password": "capodanno"
+        },
+        {
+            "username": "claudio",
+            "password": "1234"
+        }
     ]
 }

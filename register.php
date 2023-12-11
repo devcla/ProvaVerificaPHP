@@ -4,12 +4,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <?php 
+        session_start();
+
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $_POST['username'];
             $password = $_POST['password'];
+            $successfulInsert = false;
 
-            $userData = json_decode(file_get_contents('utenti.json'), true);
-        
+            $data = array('username' => $username,
+                            'password' => $password);
+            $filename = 'utenti.json';
+            $userData = file_exists($filename) ? 
+                        json_decode(file_get_contents($filename), true) : array();
+            if($userData === null) $userData = array();
+            function insert(&$userData, $newData) {
+                if(!isset($userData['users'])) {
+                    $userData['users'] = array();
+                }
+                $userData['users'][] = $newData;
+            }
+            insert($userData, $data);
+            file_put_contents($filename, json_encode($userData, JSON_PRETTY_PRINT));
+            
+            $_SESSION['username'] = $username;
+            header('Location: titolo.php');
+            exit();
+        }
     ?>
 </head>
 <body>
