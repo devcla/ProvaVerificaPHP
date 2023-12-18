@@ -1,24 +1,5 @@
 {
-    "users": [
-        {
-            "username": "admin",
-            "password": "password"
-        },
-        {
-            "username": "user1",
-            "password": "pass123"
-        },
-        {
-            "username": "user2",
-            "password": "letmein"
-        },
-        {
-            "username": "napoli",
-            "password": "capodanno"
-        },
-        {
-            "username": "claudio",
-            "password": "1234"
-        }
-    ]
+    "admin": "password",
+    "user": "pennarello",
+    "napoli": "capodanno" 
 }
