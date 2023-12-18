@@ -5,43 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inserimento</title>
     <?php
-    session_start();
-    if (!isset($_SESSION['username'])) {
+    //session_start();
+    if (!isset($_COOKIE['galera'])) {
         header('Location: login.php');
         exit();
-    } elseif (!isset($_SESSION['titolo'])) {
+    } elseif (!isset($_COOKIE['titolo'])) {
         header('Location: titolo.php');
     }
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-        $caso = $_SESSION['titolo'];
         $nome = $_POST['nome'];
         $altezza = $_POST['altezza'];
         $nazionalita = $_POST['nazionalita'];
         if (isset($_POST['tatuaggi'])) {
             $tatuaggi = $_POST['tatuaggi'];
         } else {
-            $tatuaggi = ' ';
+            $tatuaggi = 'NO';
         }
         if (isset($_POST['orecchini'])) {
             $orecchini = $_POST['orecchini'];
         } else {
-            $orecchini = ' ';
+            $orecchini = 'NO';
         }
         if (isset($_POST['piercing'])) {
             $piercing = $_POST['piercing'];
         } else {
-            $piercing = ' ';
+            $piercing = 'NO';
         }
         if (isset($_POST['occhiali'])) {
             $occhiali = $_POST['occhiali'];
         } else {
-            $occhiali = ' ';
+            $occhiali = 'NO';
         }
         if (isset($_POST['fumatore'])) {
             $fumatore = $_POST['fumatore'];
         } else {
-            $fumatore = ' ';
+            $fumatore = 'NO';
         }
 
         $criminale = array(
@@ -55,28 +53,18 @@
             'fumatore' => $fumatore
         );
 
-        $filename = 'galera.json';
+        $filename = 'indiziati.json';
         $existingData = file_exists($filename) ?
             json_decode(file_get_contents($filename), true) : array();
         if ($existingData === null) $existingData = array();
-        function insert(&$existingData, $newData, $caso)
-        {
-            if (!isset($existingData[$caso])) {
-                $existingData[$caso] = array();
-            }
-            $existingData[$caso][] = $newData;
-        }
-        insert($existingData, $criminale, $caso);
+        $existingData[] = $criminale;
         file_put_contents($filename, json_encode($existingData, JSON_PRETTY_PRINT));
     }
     ?>
 </head>
 
 <body>
-    <h1><?php echo $_SESSION['titolo']; ?></h1>
-    <a href="./login.php">
-        <input type="button" value="logout">
-    </a>
+    <h1><?php echo $_COOKIE['titolo']; ?></h1>
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         <h3>Inserire informazioni del criminale</h3>
         <h4>Nome: <input type="text" name="nome"></h4>
@@ -277,15 +265,15 @@
                 <option value="zimbabwean">Zimbabwean</option>
             </select> </h4>
         <h4>Tratti distintivi</h4>
-        <input type="checkbox" name="tatuaggi" value="tatuaggi">
+        <input type="checkbox" name="tatuaggi" value="SI">
         <label for="tatuaggi">Tatuaggi</label>
-        <input type="checkbox" name="orecchini" value="orecchini">
+        <input type="checkbox" name="orecchini" value="SI">
         <label for="orecchini">Orecchini</label>
-        <input type="checkbox" name="piercing" value="piercing">
+        <input type="checkbox" name="piercing" value="SI">
         <label for="piercing">Piercing</label>
-        <input type="checkbox" name="occhiali" value="occhiali">
+        <input type="checkbox" name="occhiali" value="SI">
         <label for="occhiali">Occhiali</label>
-        <input type="checkbox" name="fumatore" value="fumatore">
+        <input type="checkbox" name="fumatore" value="SI">
         <label for="fumatore">Fumatore</label><br><br>
         <input type="submit" value="indiziato">
         <a href="./sospetti.php">

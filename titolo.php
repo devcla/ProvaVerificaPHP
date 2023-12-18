@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scelta titolo</title>
     <?php
-    session_start();
+    //session_start();
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $jsonFile = 'galera.json';
@@ -13,7 +13,8 @@
 
         $titolo = $_POST['titolo'];
         if (!isset($cases[$titolo])) {
-            $_SESSION['titolo'] = $titolo;
+            //$_SESSION['titolo'] = $titolo;
+            setcookie('titolo', $titolo);
             header('Location: inserimento.php');
             exit();
         } else {

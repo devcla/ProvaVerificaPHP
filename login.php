@@ -6,13 +6,13 @@
     <title>Login</title>
     <?php
     //start the session
-    session_start();
+    //session_start();
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        function authenticate ($username, $password) {
+        function authenticate($username, $password)
+        {
             $jsonFile = 'utenti.json';
             $users = json_decode(file_get_contents($jsonFile), true);
-
             if (isset($users[$username])) {
                 if ($users[$username] === $password) {
                     return true;
@@ -27,7 +27,8 @@
         $password = $_POST['password'];
 
         if (authenticate($username, $password)) {
-            $_SESSION['username'] = $username;
+            setcookie('username', $username);
+            //$_SESSION['username'] = $username;
             header('Location: titolo.php');
             exit();
         } else {

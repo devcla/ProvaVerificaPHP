@@ -1,26 +1,78 @@
 {
-    "MANIFEST": [
+    "the case": [
         {
-            "nome": "Armando",
-            "altezza": "160",
-            "nazionalita": "argentinean",
-            "tatuaggi": "tatuaggi",
-            "orecchini": "orecchini",
-            "piercing": "piercing",
-            "occhiali": " ",
-            "fumatore": "fumatore"
-        }
-    ],
-    "Breaking bed": [
-        {
-            "nome": "Pennarello",
-            "altezza": "120",
-            "nazionalita": "albanian",
+            "nome": "scemo",
+            "altezza": "asd",
+            "nazionalita": "antiguans",
             "tatuaggi": "tatuaggi",
             "orecchini": " ",
             "piercing": " ",
             "occhiali": " ",
             "fumatore": " "
+        }
+    ],
+    "rossis": [
+        {
+            "nome": "Claudio",
+            "altezza": "180",
+            "nazionalita": "andorran",
+            "tatuaggi": "tatuaggi",
+            "orecchini": " ",
+            "piercing": " ",
+            "occhiali": "occhiali",
+            "fumatore": " "
+        }
+    ],
+    "lampadina": [
+        {
+            "nome": "bruschetta",
+            "altezza": "12",
+            "nazionalita": "algerian",
+            "tatuaggi": "tatuaggi",
+            "orecchini": " ",
+            "piercing": " ",
+            "occhiali": " ",
+            "fumatore": " ",
+            "sospettati": 3
+        }
+    ],
+    "la pizzeria": [
+        {
+            "nome": "mozzarella",
+            "altezza": "223",
+            "nazionalita": "armenian",
+            "tatuaggi": "tatuaggi",
+            "orecchini": " ",
+            "piercing": " ",
+            "occhiali": " ",
+            "fumatore": "fumatore",
+            "sospettati": 3
+        }
+    ],
+    "casone": [
+        {
+            "nome": "casone",
+            "altezza": "290",
+            "nazionalita": "argentinean",
+            "tatuaggi": "tatuaggi",
+            "orecchini": " ",
+            "piercing": " ",
+            "occhiali": " ",
+            "fumatore": " ",
+            "sospettati": 2
+        }
+    ],
+    "boh": [
+        {
+            "nome": "arance",
+            "altezza": "134",
+            "nazionalita": "argentinean",
+            "tatuaggi": "SI",
+            "orecchini": "SI",
+            "piercing": "SI",
+            "occhiali": "SI",
+            "fumatore": "SI",
+            "sospettati": 3
         }
     ]
 }
